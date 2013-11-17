@@ -16,7 +16,7 @@ $historial = new historial($cod_junta,$junta->periodo_actual());
 $transaccion = new transacciones($cod_junta);
 ?>
 <body style="background-color:#88A6DC">
-
+hola hola hola
 	<div id="contenedor">
 		<div id="cabecera_ob">
 			<?php
