@@ -1,4 +1,6 @@
-
+<?php
+require_once("../class.php");
+?>
 <html>
 <head>
 <title>..>>Juntas Online<<..</title>
