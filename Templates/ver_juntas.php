@@ -1,10 +1,10 @@
 <?php
-require_once("../class.php");
+require_once("../require/class.php");
 ?>
 <html>
 <head>
 <title>..>>Juntas Online<<..</title>
-<link href="css/estilos.css" type="text/css" rel="stylesheet" >
+<link href="../Estilos/estilos.css" type="text/css" rel="stylesheet" >
 </head>
 <?php
 $cod_cliente = 1;
@@ -77,7 +77,7 @@ $transaccion = new transacciones($cod_junta);
 						<h1><font color="#FFFFFF"><?php echo $cliente->_datos["user"]?></font></h1>	
 				</div>
 				<div>
-						<img src="fotos/<?php echo $cliente->ver_foto();?>" height="100px" align="center">
+						<img src="<?php echo $cliente->ver_foto();?>" height="100px" align="center">
 				</div>
 				<div>
 						Monto Total: <?php echo $junta->_datos["monto_t"];?>

@@ -32,14 +32,14 @@ class cliente {
 			$this->_datos = $datos_cliente->retornar_array();
 		}
 		public function ver_foto() {
-				return "avatar.jpg";
+				return "../Imagenes/avatar.jpg";
 		}
 		public function ver_codigo() {
 				return $this->_datos["cod_cliente"];
 		}
 		public function cabecera_cliente () {
 			?>
-			<img src="fotos/<?php echo $this->ver_foto();?>" height="70px" align="right">
+			<img src="<?php echo $this->ver_foto();?>" height="70px" align="right">
 			<?php		
 		}
 
@@ -89,7 +89,7 @@ class participantes {
 									while($this->_conexion->retornar_array()) {
 									?>
 										<td>
-											<img src="fotos/<?php echo "avatar.jpg";?>" height="90px" align="right">
+											<img src="../Imagenes/<?php echo "avatar.jpg";?>" height="90px" align="right">
 										</td>
 									<?php
 									}
