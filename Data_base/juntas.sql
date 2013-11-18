@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-11-2013 a las 00:35:12
+-- Tiempo de generación: 18-11-2013 a las 13:12:00
 -- Versión del servidor: 5.5.34-0ubuntu0.13.10.1
 -- Versión de PHP: 5.5.3-1ubuntu2
 
@@ -27,24 +27,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `cliente` (
-  `cod_cliente` int(11) DEFAULT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `correo` varchar(50) DEFAULT NULL,
-  `num_tarjeta` int(11) DEFAULT NULL,
+  `cod_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(40) DEFAULT NULL,
+  `num_tarjeta` varchar(20) DEFAULT NULL,
   `user` varchar(20) DEFAULT NULL,
-  `pass` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `pass` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`cod_cliente`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`cod_cliente`, `nombre`, `correo`, `num_tarjeta`, `user`, `pass`) VALUES
-(1, 'juan', 'jibf@gmail.com', 2015151515, 'JOTA', '123'),
-(2, 'Alex', 'alex@gmail.com', 2147483647, 'Alex', '123'),
-(3, 'milton', 'm@gmail.cmo', 2147483647, 'Milton', '123'),
-(4, 'erick', 'eum_6@gmail.com', 2147483647, 'Erick', '123'),
-(5, 'David', 'dav7d@gmail.com', 2147483647, 'Davichon', '123');
+INSERT INTO `cliente` (`cod_cliente`, `nombre`, `num_tarjeta`, `user`, `pass`) VALUES
+(1, 'Juan Basilio', '2147483647', 'JOTA', '123');
 
 -- --------------------------------------------------------
 
@@ -53,13 +49,14 @@ INSERT INTO `cliente` (`cod_cliente`, `nombre`, `correo`, `num_tarjeta`, `user`,
 --
 
 CREATE TABLE IF NOT EXISTS `junta` (
-  `cod_junta` int(11) DEFAULT NULL,
+  `cod_junta` int(11) NOT NULL AUTO_INCREMENT,
   `monto_t` int(11) DEFAULT NULL,
   `tiempo_t` int(11) DEFAULT NULL,
   `frec_pago` int(11) DEFAULT NULL,
   `estado` varchar(20) DEFAULT NULL,
-  `fecha_ini` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fecha_ini` date DEFAULT NULL,
+  PRIMARY KEY (`cod_junta`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `junta`
@@ -76,23 +73,12 @@ INSERT INTO `junta` (`cod_junta`, `monto_t`, `tiempo_t`, `frec_pago`, `estado`, 
 --
 
 CREATE TABLE IF NOT EXISTS `tabla_x` (
+  `id_tabla_x` int(11) NOT NULL AUTO_INCREMENT,
   `cod_cliente` int(11) DEFAULT NULL,
   `cod_junta` int(11) DEFAULT NULL,
-  `puesto` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tabla_x`
---
-
-INSERT INTO `tabla_x` (`cod_cliente`, `cod_junta`, `puesto`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(1, 1, 1),
-(3, 1, 7),
-(4, 1, 6),
-(1, 2, 3),
-(2, 2, 1);
+  `puesto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_tabla_x`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -101,19 +87,13 @@ INSERT INTO `tabla_x` (`cod_cliente`, `cod_junta`, `puesto`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tabla_y` (
+  `id_tabla_y` int(11) NOT NULL AUTO_INCREMENT,
   `cod_junta` int(11) DEFAULT NULL,
   `cod_cliente1` int(11) DEFAULT NULL,
   `cod_cliente2` int(11) DEFAULT NULL,
-  `transacciones` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `tabla_y`
---
-
-INSERT INTO `tabla_y` (`cod_junta`, `cod_cliente1`, `cod_cliente2`, `transacciones`) VALUES
-(1, 1, 2, 50),
-(1, 5, 3, 120);
+  `transacciones` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_tabla_y`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -122,9 +102,11 @@ INSERT INTO `tabla_y` (`cod_junta`, `cod_cliente1`, `cod_cliente2`, `transaccion
 --
 
 CREATE TABLE IF NOT EXISTS `tabla_z` (
+  `id_tabla_z` int(11) NOT NULL AUTO_INCREMENT,
   `cod_junta` int(11) DEFAULT NULL,
-  `utilidad` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `utilidad` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_tabla_z`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
