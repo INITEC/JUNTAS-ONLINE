@@ -9,7 +9,7 @@ require_once("../require/func_formulario.php");
 <body>
 	<h1>Creando Nueva Junta</h1>
 		<hr>
-	<form action="crear_junta_enviar.php" method="POST" name="junta_nueva" >
+	<form name="junta_nueva" action="crear_junta_enviar.php" method="post">
 		<div align="center" name="Monto">
 			<h2>Monto Total</h2> 
 			<?php radio_button("monto",300,900,300); ?>
@@ -20,8 +20,8 @@ require_once("../require/func_formulario.php");
 		</div>
 		<div align="center" name="frecuencia" >
 			<h2>Frecuencia de pago</h2>
-			<input type="radio" name="frecuencia" value="1" > quincenal 
-			<input type="radio" name="frecuencia" value="2" > mensual 
+			<input type="radio" name="frecuencia" value="2" > quincenal 
+			<input type="radio" name="frecuencia" value="1" > mensual 
 		</div>
 		<div align="center">
 				<br>
