@@ -67,7 +67,18 @@ class junta {
 					public function numero_periodos () {
 						return $this->_datos["tiempo_t"]/$this->_datos["frec_pago"];
 					}
-										
+					public function numero_participantes() {
+						return $this->_datos["tiempo_t"];
+					}
+					public function cantidad_cuota() {
+						$numero_periodos = $this->numero_periodos();
+						$monto_total = $this->_datos["monto_t"];
+						return $monto_total/$numero_periodos;
+					}
+					public function frecuencia_pago() {
+						if($this->_datos["frec_pago"]==1) {return "mensual";}
+						if($this->_datos["frec_pago"]==2) {return "quincenal";}
+						}				
 				}
 
 class participantes {
