@@ -178,14 +178,33 @@ class transacciones {
 class sorteo {
 					private $_cod_cliente;
 					private $_junta;
-					public $_posicion;
+					public $_posiciones = array();
 					
 					public function __construct($cod_cliente,$junta) {
 							$this->_cod_cliente = $cod_cliente;
 							$this->_junta = $junta;
 					}
 					
-					public function dar_numero() {
+					public function generar aleatorios() {
+						$tam = $this->_junta->numero_participantes();
+						for($i=0;$i<$tam;$i++) {						
+								  $num_aleatorio = rand(1,$tam);
+								  $repite = 1;
+								  while($repite == 1) {
+								  			$repite = 0;
+								  		for($j=0;$j<$i;$j++) {
+								  				if($this->_posiciones[0] == $nume_aleatorio) {
+								  						$repite = 1;
+								  						$num_aleatorio = rand(1,$tam);
+								  				}
+								  			}
+									}
+  									array_push($this->_posiciones,$num_aleatorio);
+							}
+						}
+					
+					
+					public function dar_numeros() {
 							$participantes = new participantes($this->_cod_cliente, $this->_junta->_datos["cod_junta"]);
 							$conexion = new conexion();
 							srand(time());
@@ -199,7 +218,9 @@ class sorteo {
 								$sentencia = "INSERT INTO `tabla_x`(`id_tabla_x`, `cod_cliente`, `cod_junta`, `puesto`)
 													 VALUES ()";			
 							}
+						
 					}
+
 }
 						
 ?>
