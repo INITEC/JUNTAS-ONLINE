@@ -1,7 +1,31 @@
 
 
 @charset "iso-8859-1";
-
+.Buscar
+{
+	position:absolute;
+	top:60%;
+	left:85%;
+	width: 200px;
+	height: 200px;	
+	
+	}
+.fb-like
+{
+position:absolute;
+	top:20%;
+	left:75%;
+	width: 100px;
+	height: 300px;	
+	}
+	.Twiter
+	{
+	position:absolute;
+	top:30%;
+	left:75%;
+	width: 100px;
+	height: 100px;	
+	}
 .Video
 {
 	position:absolute;
@@ -13,7 +37,7 @@
 	}
 	.Imagen
 {
-	position:absolute;
+	position:relative;
 	top:20%;
 	left:55%;
 	width: 50px;
