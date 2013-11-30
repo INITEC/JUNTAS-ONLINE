@@ -174,7 +174,7 @@ class transacciones {
 								return $reg["user"];
 								}
 }				
-
+/*
 class sorteo {
 					private $_cod_cliente;
 					private $_junta;
@@ -187,6 +187,7 @@ class sorteo {
 					
 					public function generar aleatorios() {
 						$tam = $this->_junta->numero_participantes();
+						srand(time());
 						for($i=0;$i<$tam;$i++) {						
 								  $num_aleatorio = rand(1,$tam);
 								  $repite = 1;
@@ -207,7 +208,7 @@ class sorteo {
 					public function dar_numeros() {
 							$participantes = new participantes($this->_cod_cliente, $this->_junta->_datos["cod_junta"]);
 							$conexion = new conexion();
-							srand(time());
+							
 							$sentencia = "select * from tabla_x where cod_cliente=".$cod_cliente." and cod_junta=".$cod_junta." ";
 							$conexion->ejecutar_sentencia($sentencia);
 							if($conexion->tam_respuesta() == 0) {
@@ -222,6 +223,6 @@ class sorteo {
 					}
 
 }
-						
+*/						
 ?>
 
