@@ -1,12 +1,12 @@
 <?php
 require_once ("../require/class.php");
-
+$cod_cliente = 1;
 $monto_t = $_POST["monto"];
 $tiempo_t = $_POST["participantes"];
 $frec_pago = $_POST["frecuencia"];
 $envio = new conexion();
-$sentencia = "INSERT INTO `junta`(`cod_junta`, `monto_t`, `tiempo_t`, `frec_pago`, `estado`, `fecha_ini`) 
-					VALUES (null, ".$monto_t.", ".$tiempo_t.", ".$frec_pago.", 'activo', now() )";
+$sentencia = "INSERT INTO `junta`(`cod_junta`, `monto_t`, `tiempo_t`, `frec_pago`, `estado`, `fecha_ini`, `cod_cliente`) 
+					VALUES (null, ".$monto_t.", ".$tiempo_t.", ".$frec_pago.", 'activo', now(), ".$cod_cliente.")";
 
 if($res=$envio->ejecutar_sentencia($sentencia)) {
 	$sentencia = "select cod_junta from junta  order by cod_junta desc limit 1";
