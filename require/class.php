@@ -68,7 +68,7 @@ class junta {
 						return $this->_datos["tiempo_t"]/$this->_datos["frec_pago"];
 					}
 					public function numero_participantes() {
-						return $this->_datos["tiempo_t"];
+						return $this->_datos["tiempo_t"]/$this->_datos["frec_pago"];
 					}
 					public function cantidad_cuota() {
 						$numero_periodos = $this->numero_periodos();
@@ -93,7 +93,7 @@ class participantes {
 									AND cliente.cod_cliente=tabla_x.cod_cliente order by puesto asc";
 									$this->_conexion->ejecutar_sentencia($this->_sql);
 									$this->_datos = $this->_conexion->retornar_array();
-									$this->_numero = $this->_conexion->tam_respuesta();
+									$this->_numero = $this->_conexion->tam_respuesta()+1;
 								}
 								public function mostrar_fotos() {
 									$this->_conexion->ejecutar_sentencia($this->_sql);
@@ -174,6 +174,8 @@ class transacciones {
 								return $reg["user"];
 								}
 }				
+
+
 						
 ?>
 
