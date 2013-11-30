@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Holasdfdf</title>
+<title>HolaWWWWWWWWWWW</title>
 <link href="../Estilos/EstilosPrincipal.css" rel="stylesheet" type="text/css" />
 <link  href="../Estilos/menu.css" rel="stylesheet" type="text/css" />
 </head>
@@ -38,7 +38,8 @@
 
 <div class="fb-like" data-href="https://www.facebook.com/pages/Initec-Uni/237562866398443?fref=ts" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
   <div class="Twiter">
-  <a href="https://twitter.com/Alex_Master_Kun" class="twitter-follow-button" data-show-count="false" data-lang="es" data-size="large">Seguir a @Alex_Master_Kun</a>
+
+<a href="https://twitter.com/INITECUNI" class="twitter-follow-button" data-show-count="false">Follow @INITECUNI</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 </div>
