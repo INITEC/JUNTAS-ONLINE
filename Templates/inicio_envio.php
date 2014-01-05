@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require_once ("../require/class.php");
 require_once ("../require/inicio_class.php");
 
 $inicio = new inicio();

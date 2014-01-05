@@ -19,7 +19,7 @@
 						Clave
 					</div>
 					<div>
-						<input type="pass" name="pass">
+						<input type="password" name="pass">
 					</div>
 					<div>
 						<input type="submit" title="login" value="Ingresar">
