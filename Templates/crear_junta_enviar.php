@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once ("../require/class.php");
-$cod_cliente = 1;
+$cod_cliente = $_SESSION["cod_cliente"];
 $monto_t = $_POST["monto"];
 $tiempo_t = $_POST["participantes"];
 $frec_pago = $_POST["frecuencia"];

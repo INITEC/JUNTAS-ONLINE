@@ -3,8 +3,7 @@ require_once ("../require/class.php");
 
 	
 	
-	$cod_cliente = 1;   // $cod_junta=$_POST["cod_junta"];
-	
+	$cod_cliente = 1;   	
 	$cod_junta=1;
 	$junta = new junta($cod_junta);
 	$participantes = new participantes($cod_cliente, $cod_junta);

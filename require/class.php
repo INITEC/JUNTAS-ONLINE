@@ -8,12 +8,11 @@ class conexion {
 	
 	public function __construct () {
 		$this->_conexion = mysql_connect("sql207.redwebmaster.com.ar", "redwe_14057894", "initec");
-		$this->_base_datos = mysql_select_db("redwe_14057894_juntas");	
+		$this->_base_datos = mysql_select_db("juntas");	
 	} 
 	public function ejecutar_sentencia ($sql) {
 		$this->_sql = $sql;
-		$this->_result = mysql_query($this->_sql , $this->_conexion);
-		return $this->_result;
+		return ($this->_result = mysql_query($this->_sql , $this->_conexion));
 	}
 
 	public function retornar_array() {
@@ -78,7 +77,12 @@ class junta {
 					public function frecuencia_pago() {
 						if($this->_datos["frec_pago"]==1) {return "mensual";}
 						if($this->_datos["frec_pago"]==2) {return "quincenal";}
-						}				
+						}
+					public function cambiar_estado($estado) {
+						$conexion = new conexion();
+						$sql = "UPDATE `junta` SET `estado`='1' WHERE `cod_junta`='".$this->_datos["cod_junta"]."'";	
+						return $conexion->ejecutar_sentencia($sql);
+					}				
 				}
 
 class participantes {
@@ -89,11 +93,11 @@ class participantes {
 								public function __construct ($cod_cliente , $cod_junta){
 									$this->_conexion = new conexion();
 									$this->_sql = "select * from cliente,tabla_x 
-									where tabla_x.cod_cliente!=".$cod_cliente." AND tabla_x.cod_junta=".$cod_junta." 
+									where tabla_x.cod_junta=".$cod_junta." 
 									AND cliente.cod_cliente=tabla_x.cod_cliente order by puesto asc";
 									$this->_conexion->ejecutar_sentencia($this->_sql);
 									$this->_datos = $this->_conexion->retornar_array();
-									$this->_numero = $this->_conexion->tam_respuesta()+1;
+									$this->_numero = $this->_conexion->tam_respuesta();
 								}
 								public function mostrar_fotos() {
 									$this->_conexion->ejecutar_sentencia($this->_sql);
@@ -115,6 +119,9 @@ class participantes {
 									<?php
 									}
 								}
+								public function num_participantes_actuales() {
+									return $this->_numero;
+								}	
 							}
 
 class historial {	private $_cod_junta;
@@ -175,6 +182,32 @@ class transacciones {
 								}
 }				
 
+class sorteo {
+					private $_cod_cliente;
+					private $cod_junta;
+					public $_posicion;
+					private $_num_participantes;
 					
+					public function __construct($cod_cliente,$cod_junta,$num_participantes) {
+							$this->_cod_cliente = $cod_cliente;
+							$this->_cod_junta = $cod_junta;
+					}
+					
+					public function dar_numero() {
+							$conexion = new conexion();
+							srand(time());
+							$sentencia = "select * from tabla_x where cod_cliente=".$cod_cliente." and cod_junta=".$cod_junta." ";
+							$conexion->ejecutar_sentencia($sentencia);
+							if($conexion->tam_respuesta() == 0) {
+								
+								$_posicion = rand(1, $this->_num_participantes);
+	
+								
+								$sentencia = "INSERT INTO `tabla_x`(`id_tabla_x`, `cod_cliente`, `cod_junta`, `puesto`)
+													 VALUES ()";			
+							}
+					}
+}
+						
 ?>
 
