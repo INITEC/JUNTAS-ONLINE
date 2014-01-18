@@ -18,7 +18,6 @@ $tipo = $_POST["tipo"];
 			</script>";
 			if($inicio->verificar_usuario($user,$pass) == true ) {
 				$_SESSION["cod_cliente"] = $inicio->cod_cliente();
-				header("Location: PlantillaBase.php");
 			}
 			header("Location: PlantillaBase.php");
 		}

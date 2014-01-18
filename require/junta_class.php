@@ -3,7 +3,7 @@
 require_once ("../require/conexion_class.php");
 
 class junta {	
-					public $_datos = array();
+					private $_datos = array();
 					private $dia;
 					private $mes;
 					private $year;

@@ -5,7 +5,7 @@
 	$cod_junta = 1;
 	$num_participantes = 3;
 	$participantes = new participantes($cod_cliente, $cod_junta);
-	$sorteo = new realizar_sorteo($cod_junta,$num_participantes);
+	$sorteo = new sorteo($cod_junta,$num_participantes);
 	if($participantes->num_participantes_actuales() == $num_participantes ) {
 		if($sorteo->estado_sorteo() == 0  ) {
 			$sorteo->establecer_posiciones();

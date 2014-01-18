@@ -12,7 +12,7 @@
 
  <div class="MenuJuntas">
     <ul>
-      <li><a href="https://www.google.com.pe">CREAR JUNTAS</a></li>
+      <li><a href="elegir_junta.php">ELEGIR JUNTA</a></li>
       <li><a href="https://www.google.com.pe">MIS JUNTAS</a></li>
       <li><a href="https://www.google.com.pe">INVITACION</a></li>
     </ul>

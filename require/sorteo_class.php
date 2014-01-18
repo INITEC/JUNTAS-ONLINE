@@ -1,7 +1,7 @@
 <?php
 	require_once ("../require/conexion_class.php");
 	
-class realizar_sorteo {
+class sorteo {
 	
 	private $_conexion;
 	private $_cod_junta;

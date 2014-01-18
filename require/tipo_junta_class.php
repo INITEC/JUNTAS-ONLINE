@@ -26,7 +26,7 @@
 		public function establecer_tipo ($cod_tipo) {
 			$sql = "SELECT * FROM tipo_junta WHERE cod_tipo='".$cod_tipo."'";
 			$this->_conexion->ejecutar_sentencia($sql);
-			$this->_datos = $this->conexion->retornar_array();
+			$this->_datos = $this->_conexion->retornar_array();
 		}
 		public function numero_periodos () {
 			return $this->_datos["tiempo_t"]/$this->_datos["frec_pago"];
