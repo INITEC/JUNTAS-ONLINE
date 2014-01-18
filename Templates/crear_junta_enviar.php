@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("../require/class.php");
+require_once ("../require/conexion_class.php");
 $cod_cliente = $_SESSION["cod_cliente"];
 $monto_t = $_POST["monto"];
 $tiempo_t = $_POST["participantes"];

@@ -1,6 +1,7 @@
 <?php 
-	require_once ("../require/class.php");
+	require_once ("../require/conexion_class.php");
 	require_once ("../require/tabla_x_class.php");
+	require_once ("../require/junta_class.php");
 
 	class junta_vista {
 		private $_conexion;
@@ -17,12 +18,8 @@
 		}
 		
 		public function entrar_junta (){
-			$sql = "SELECT * FROM tipo_junta WHERE cod_tipo='".$this->_cod_tipo."'";
-			$this->_conexion->ejecutar_sentencia($sql);
-			$dato_tipo = $this->_conexion->retornar_array();
 			$sql = "SELECT cod_junta,monto_t,tiempo_t,frec_pago,estado FROM junta WHERE
-					  monto_t='".$dato_tipo["monto_t"]."' AND tiempo_t='".$dato_tipo["tiempo_t"]."' AND
-					  frec_pago='".$dato_tipo["frec_pago"]."' AND estado='0' LIMIT 1 ";
+					  cod_tipo='".$this->_cod_tipo."' AND estado='0' LIMIT 1 ";
 			$this->_conexion->ejecutar_sentencia($sql);
 			$dato_junta = $this->_conexion->retornar_array();
 			$cod_junta = $dato_junta["cod_junta"];
@@ -37,8 +34,8 @@
 				if($tam = $this->_junta->numero_participantes()) {
 					$this->_tabla_x->inscribir($this->_cod_cliente,$cod_junta);
 					/*creando nueva junta ...*/
-					$sql = "INSERT INTO `junta` (`cod_junta`, `monto_t`, `tiempo_t`, `frec_pago`, `estado`, `fecha_ini`)
-							  VALUES (null, '".$dato_tipo["monto_t"]."', '".$dato_tipo["tiempo_t"]."', '".$dato_tipo["frec_pago"]."',
+					$sql = "INSERT INTO `junta` (`cod_junta`, `cod_tipo`, `estado`, `fecha_ini`)
+							  VALUES (null, '".$this->_cod_tipo."',
 							  '0', now())";
 					$this->_conexion->ejecutar_sentencia($sql);
 					return $cod_junta;

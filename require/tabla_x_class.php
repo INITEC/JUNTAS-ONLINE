@@ -1,5 +1,5 @@
 <?php 
-	require_once ("../require/class.php");
+	require_once ("../require/conexion_class.php");
 	
 	class tabla_x {
 		private $_conexion;

@@ -1,5 +1,6 @@
 <?php
-require_once ("../require/class.php");
+	require_once ("../require/junta_class.php");
+	require_once ("../require/participantes_class.php");
 
 	
 	

@@ -1,6 +1,6 @@
 <?php 
 	require_once ("../require/sorteo_class.php");
-	require_once ("../require/class.php");
+	require_once ("../require/participantes_class.php");
 	$cod_cliente = $_SESSION["cod_cliente"];
 	$cod_junta = 1;
 	$num_participantes = 3;

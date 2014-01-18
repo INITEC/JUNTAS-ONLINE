@@ -1,4 +1,4 @@
-<?php require_once ("../require/class.php"); ?>
+<?php require_once ("../require/conexion_class.php");?>
 
 <?php 
 $textj = $_POST["TextJunta"];

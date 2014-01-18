@@ -16,6 +16,10 @@ $tipo = $_POST["tipo"];
 			echo "<script type='text/javascript' language='javascript' >
 			alert ('El registro se realizo correctamente, gracias por unirse ".$nombre."');
 			</script>";
+			if($inicio->verificar_usuario($user,$pass) == true ) {
+				$_SESSION["cod_cliente"] = $inicio->cod_cliente();
+				header("Location: PlantillaBase.php");
+			}
 			header("Location: PlantillaBase.php");
 		}
 		else {

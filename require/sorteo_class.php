@@ -1,5 +1,5 @@
 <?php
-	require_once ("../require/class.php");
+	require_once ("../require/conexion_class.php");
 	
 class realizar_sorteo {
 	
@@ -41,15 +41,15 @@ class realizar_sorteo {
 			$guardar->ejecutar_sentencia($sql);
 			$cont++;
 		}
-		$sql = "UPDATE `junta` SET `sorteo`='1' WHERE `cod_junta`='".$this->_cod_junta."'";	
+		$sql = "UPDATE `junta` SET `estado`='2' WHERE `cod_junta`='".$this->_cod_junta."'";	
 		$guardar->ejecutar_sentencia($sql);
 	}			
 	
 	public function estado_sorteo(){
-		$sql = "SELECT cod_junta,sorteo FROM junta WHERE cod_junta='".$this->_cod_junta."'";
+		$sql = "SELECT cod_junta,estado FROM junta WHERE cod_junta='".$this->_cod_junta."'";
 		$this->_conexion->ejecutar_sentencia($sql);
 		$resultado = $this->_conexion->retornar_array();
-		return $resultado["sorteo"];
+		return $resultado["estado"];
 	}
 }	
 

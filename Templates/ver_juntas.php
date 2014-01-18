@@ -1,7 +1,12 @@
 <?php
 session_start();
-require_once("../require/class.php");
+require_once ("../require/cliente_class.php");
+require_once ("../require/junta_class.php");
+require_once ("../require/participantes_class.php");
+require_once ("../require/historial_class.php");
+require_once ("../require/transacciones_class.php");
 require_once ("../require/sorteo_class.php");
+require_once ("../require/tipo_junta_class.php");
 ?>
 
 <?php
@@ -10,11 +15,13 @@ $cod_cliente = $_SESSION["cod_cliente"];
 $cod_junta = $_SESSION["cod_junta"];
 $cliente = new cliente($cod_cliente);
 $junta = new junta($cod_junta);
+$tipo_junta = new tipo_junta();
+$tipo_junta->establecer_tipo($junta->retornar_cod_tipo());
+$num_participantes = $tipo_junta->numero_participantes();
 $participantes = new participantes($cod_cliente, $cod_junta);
 $historial = new historial($cod_junta,$junta->periodo_actual());
 $transaccion = new transacciones($cod_junta);
 $sorteo = new realizar_sorteo($cod_junta,$num_participantes);
-$num_participantes = $junta->numero_participantes();
 
 			$self = $_SERVER['PHP_SELF'];
 			header("refresh:10; url=$self"); // refresca la pantalla cada 10 seg
@@ -99,10 +106,10 @@ $num_participantes = $junta->numero_participantes();
 							<img src="<?php echo $cliente->ver_foto();?>" height="100px" align="center">
 					</div>
 					<div>
-							Monto Total: <?php echo $junta->_datos["monto_t"];?>
+							Monto Total: <?php echo $tipo_junta->monto_t();?>
 					</div>
 					<div>
-							Numero de Periodos: <?php echo $junta->numero_periodos();?> 
+							Numero de Periodos: <?php echo $tipo_junta->numero_periodos();?> 
 					</div>
 					<div>
 							Periodo Actual: <?php echo $junta->periodo_actual();?> 
