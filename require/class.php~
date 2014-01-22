@@ -1,4 +1,5 @@
 <?php
+//"sql207.redwebmaster.com.ar", "redwe_14057894", "initec"
 class conexion {
 	
 	private $_conexion;
@@ -7,8 +8,8 @@ class conexion {
 	private $_result;	
 	
 	public function __construct () {
-		$this->_conexion = mysql_connect("localhost", "root", "jibf123");
-		$this->_base_datos = mysql_select_db("juntas");	
+		$this->_conexion = mysql_connect();
+		$this->_base_datos = mysql_select_db("redwe_14057894_juntas");	
 	} 
 	public function ejecutar_sentencia ($sql) {
 		$this->_sql = $sql;
@@ -67,7 +68,18 @@ class junta {
 					public function numero_periodos () {
 						return $this->_datos["tiempo_t"]/$this->_datos["frec_pago"];
 					}
-										
+					public function numero_participantes() {
+						return $this->_datos["tiempo_t"]/$this->_datos["frec_pago"];
+					}
+					public function cantidad_cuota() {
+						$numero_periodos = $this->numero_periodos();
+						$monto_total = $this->_datos["monto_t"];
+						return $monto_total/$numero_periodos;
+					}
+					public function frecuencia_pago() {
+						if($this->_datos["frec_pago"]==1) {return "mensual";}
+						if($this->_datos["frec_pago"]==2) {return "quincenal";}
+						}				
 				}
 
 class participantes {
@@ -82,7 +94,7 @@ class participantes {
 									AND cliente.cod_cliente=tabla_x.cod_cliente order by puesto asc";
 									$this->_conexion->ejecutar_sentencia($this->_sql);
 									$this->_datos = $this->_conexion->retornar_array();
-									$this->_numero = $this->_conexion->tam_respuesta();
+									$this->_numero = $this->_conexion->tam_respuesta()+1;
 								}
 								public function mostrar_fotos() {
 									$this->_conexion->ejecutar_sentencia($this->_sql);
@@ -163,6 +175,59 @@ class transacciones {
 								return $reg["user"];
 								}
 }				
+
+
+class sorteo {
+					private $_cod_cliente;
+					private $_junta;
+					public $_posiciones = array();
+				
+					public function __construct($cod_cliente,$junta) {
+							$this->_cod_cliente = $cod_cliente;
+							$this->_junta = $junta;
+					}
+
+					public function generar aleatorios() {
+						$tam = $this->_junta->numero_participantes();
+						$tam = 5;
+						srand(time());
+						for($i=0;$i<$tam;$i++) {						
+								  $num_aleatorio = rand(1,$tam);
+								  $repite = 1;
+								  while($repite == 1) {
+								  			$repite = 0;
+								  		for($j=0;$j<$i;$j++) {
+								  				if($this->_posiciones[0] == $nume_aleatorio) {
+								  						$repite = 1;
+								  						$num_aleatorio = rand(1,$tam);
+								  				}
+								  			}
+									}
+  									array_push($this->_posiciones,$num_aleatorio);
+							}
+						}
+					
+					
+					public function dar_numeros() {
+							$participantes = new participantes($this->_cod_cliente, $this->_junta->_datos["cod_junta"]);
+							$conexion = new conexion();
+							
+							$sentencia = "select * from tabla_x where cod_cliente=".$cod_cliente." and cod_junta=".$cod_junta." ";
+							$conexion->ejecutar_sentencia($sentencia);
+							if($conexion->tam_respuesta() == 0) {
+								
+								$_posicion = rand(1, $this->_num_participantes);
+	
+								
+								$sentencia = "INSERT INTO `tabla_x`(`id_tabla_x`, `cod_cliente`, `cod_junta`, `puesto`)
+													 VALUES ()";			
+							}
 						
+					}
+
+}
+
+
+					
 ?>
 

@@ -1,27 +1,7 @@
 <?php
 session_start();
-require_once ("../require/cliente_class.php");
-require_once ("../require/junta_class.php");
-require_once ("../require/participantes_class.php");
-require_once ("../require/historial_class.php");
-require_once ("../require/transacciones_class.php");
-require_once ("../require/sorteo_class.php");
-require_once ("../require/tipo_junta_class.php");
-?>
-
-<?php
-
-$cod_cliente = $_SESSION["cod_cliente"];
-$cod_junta = $_SESSION["cod_junta"];
-$cliente = new cliente($cod_cliente);
-$junta = new junta($cod_junta);
-$tipo_junta = new tipo_junta();
-$tipo_junta->establecer_tipo($junta->cod_tipo());
-$num_participantes = $tipo_junta->numero_participantes();
-$participantes = new participantes($cod_cliente, $cod_junta);
-$historial = new historial($cod_junta,$junta->periodo_actual());
-$transaccion = new transacciones($cod_junta);
-$sorteo = new sorteo($cod_junta,$num_participantes);
+require_once ("3_ver_junta_include/require_once.php");
+require_once ("3_ver_junta_include/crear_objetos.php");
 
 			$self = $_SERVER['PHP_SELF'];
 			header("refresh:10; url=$self"); // refresca la pantalla cada 10 seg

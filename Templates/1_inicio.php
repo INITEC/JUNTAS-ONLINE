@@ -8,7 +8,7 @@
 				<h2>LOGIN</h2>
 			</div>
 			<div>
-				<form action="inicio_envio.php" method="post">
+				<form action="1_inicio_aux.php" method="post">
 					<div>
 						Usuario
 					</div>
