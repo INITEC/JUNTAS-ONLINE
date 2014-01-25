@@ -2,15 +2,25 @@
 session_start();
 require_once ("3_ver_junta_include/require_once.php");
 require_once ("3_ver_junta_include/crear_objetos.php");
-
-			$self = $_SERVER['PHP_SELF'];
-			header("refresh:10; url=$self"); // refresca la pantalla cada 10 seg
 			
 ?>
 <html>
 	<head>
 		<title>..>>Juntas Online<<..</title>
 		<link href="../Estilos/estilos.css" type="text/css" rel="stylesheet" >
+		<script type="text/javascript" languaje="javascript" src="../JavaScript/ajax_1.js"></script>
+		<script type="text/javascript" languaje="javascript" >
+		       var time = new Date().getTime();
+  
+	
+	     function refresh() {
+	         if(new Date().getTime() - time >= 6000){ 
+	             from('<?php echo $cod_junta; ?>','participantes','3_ver_junta_aux.php');
+	             time = new Date().getTime();
+	             }
+	     }
+	 	  setTimeout(refresh, 1000);
+		</script>
 	</head>
 	<body style="background-color:#88A6DC">
 		<div id="contenedor">
@@ -24,18 +34,21 @@ require_once ("3_ver_junta_include/crear_objetos.php");
 			<div style="background-color:#88A6DC" align="center">
 			<h1><b>CUSTOMERS</b></h1>		
 			</div>
-					<table >
-						<tr>
-							<?php 		
-							$participantes->mostrar_fotos();
-							?>
-						</tr>
-						<tr align="center">	
-							<?php 		
-							$participantes->mostrar_nombres();
-							?>
-						</tr>
-					</table>
+			<div >
+				<table >
+					<tr>
+						<?php 		
+						$participantes->mostrar_fotos();
+						?>
+					</tr>
+					<tr align="center">	
+						<?php 		
+						$participantes->mostrar_nombres();
+						?>
+					</tr>
+				</table>	
+			</div>
+			</div>
 					<?php 
 						if($participantes->num_participantes_actuales() == $num_participantes ) {
 							if($sorteo->estado_sorteo() == 0  ) {
@@ -45,8 +58,7 @@ require_once ("3_ver_junta_include/crear_objetos.php");
 							else { echo "Ya se sorteo";}
 						}
 						else {echo "Aun faltan integrantes para sortear";}
-					?>
-			</div>			
+					?>		
 			<div id="cuerpo_tr" >	<!-- seccion del cuerpo -->
 				<div id="izquierda" style="background-color:#FFFFFF">	<!-- seccion del menu -->
 					<div>
