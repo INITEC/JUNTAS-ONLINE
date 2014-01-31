@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once ("3_ver_junta_include/require_once.php");
-require_once ("3_ver_junta_include/crear_objetos.php");
-			
+
+require_once ("3_ver_junta_include/carga_informacion.php");
+
 ?>
 <html>
 	<head>
@@ -10,15 +10,14 @@ require_once ("3_ver_junta_include/crear_objetos.php");
 		<link href="../Estilos/estilos.css" type="text/css" rel="stylesheet" >
 		<script type="text/javascript" languaje="javascript" src="../JavaScript/ajax_1.js"></script>
 		<script type="text/javascript" languaje="javascript" >
-		       var time = new Date().getTime();
-  
-	
-	     function refresh() {
-	         if(new Date().getTime() - time >= 6000){ 
-	             from('<?php echo $cod_junta; ?>','participantes','3_ver_junta_aux.php');
-	             time = new Date().getTime();
-	             }
-	     }
+				  var time = new Date().getTime();
+				  
+			     function refresh() {
+			         if(new Date().getTime() - time >= 6000){ 
+			             from('<?php echo $cod_junta; ?>','participantes','3_ver_junta_aux.php');
+			             time = new Date().getTime();
+			             }
+			     }
 	 	  setTimeout(refresh, 1000);
 		</script>
 	</head>
@@ -104,7 +103,7 @@ require_once ("3_ver_junta_include/crear_objetos.php");
 							Numero de Periodos: <?php echo $tipo_junta->numero_periodos();?> 
 					</div>
 					<div>
-							Periodo Actual: <?php echo $junta->periodo_actual();?> 
+							Periodo Actual: <?php echo $tipo_junta->periodo_actual($junta->fecha_inicio());?> 
 					</div>
 				</div>	
 			</div>

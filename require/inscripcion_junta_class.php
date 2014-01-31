@@ -18,6 +18,15 @@
 			$this->_tabla_x = new tabla_x();
 		}
 		
+		public function verificacion_junta_base () {
+			$sql = "SELECT cod_tipo FROM junta WHERE cod_tipo='".$this->_cod_tipo."'";
+			$this->_conexion->ejecutar_sentencia($sql);
+			$num_respuesta = $this->_conexion->tam_respuesta();
+			if($num_respuesta == 0) {
+				
+			}
+		}
+		
 		public function entrar_junta (){
 			$sql = "SELECT cod_junta,cod_tipo,estado FROM junta WHERE
 					  cod_tipo='".$this->_cod_tipo."' AND estado='0' LIMIT 1 ";

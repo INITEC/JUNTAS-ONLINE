@@ -1,0 +1,66 @@
+/* Estilo parte A */
+
+#A_1 {width: 100%; height:58px; margin:0px ; align:center}
+#A_int {width:660px; background-color:#FFFFFF; text-align:center; overflow:hidden; padding: 0px 0px 0px 0px; margin: 0 auto 1% auto}
+
+
+#cuerpo {width: 100%; height:45%; margin: 0px auto 0px auto; background-color: #275096; overflow: hidden; }
+#izquierda {float: left; width: 30%; height:100%; background-color:#0E3475; text-align: center; }
+#centro {float: left; width: 38%; height:100%; margin: 0px 0px 0px 1%; background-color:#0855D9; text-align: justify; }
+#derecha {float: left; width: 30%; height:100%; margin: 0px 0px 0px 1%; background-color: #0E3475; text-align: center; }
+#pie {background-color:#CDE8F3; margin: 1% 0 0 0; padding: 0 0 0 0px; text-align:center; clear: both; color:#0E3475 ; font: 8pt Verdana;} 
+
+
+/* Estilo parte B */
+
+#B_1 { background-image:url('index/Imagenes/fondo.png') ;  height:553px;   }
+#B_int {width:660px; overflow:hidden; margin: 0 auto 1% auto }
+#B_img {margin-top: 107px; float: left;}
+
+/*Estilo parte C */
+
+#C_1 { background-color:#5e5e5f;  height:57px;   }
+
+/* Estilo texto general*/
+
+#text_tit {font-family: "Andele Mono", cursive; font-size: 30px ; width: 320px;}
+#text_msg {font-family: "Andele Mono", monospace; font-size: 17px; width: 320px; }
+
+/*Estilo parte D */
+
+#D_1 { background-color:#ffffff;  height:410px;   }
+#D_int {width:660px; overflow:hidden; margin: 0 auto 1% auto}
+#D_img {margin-top: 60px}
+#D_text {float: left; margin-top: 60px}
+
+
+/*Estilo parte E */
+
+#E_1 { background-color:#008fe8;  height:410px;   }
+#E_int {width:660px; overflow:hidden; margin: 0 auto 1% auto}
+#E_img {margin-top: 60px}
+#E_text {float: right; text-align: right;}
+#E_text_tit {font-family: "Andele Mono", cursive; font-size: 30px ;}
+#E_text_msg {font-family: "Andele Mono", monospace; font-size: 16px}
+
+/*Estilo parte F */
+
+#F_1 { background-color:#ffffff;  height:410px;   }
+#F_int {width:660px; overflow:hidden; margin: 0 auto 1% auto}
+#F_img {margin-top: 60px}
+#F_text {float: left; margin-top: 60px}
+#F_text_tit {font-family: "Andele Mono", cursive; font-size: 30px ;}
+#F_text_msg {font-family: "Andele Mono", monospace; font-size: 16px}
+
+/*Estilo parte G */
+
+#G_1 {width: 100%; height:410px; background-color:#5e5e5f; margin:0px ; align:center}
+#G_int {width:660px; overflow:hidden; margin: 0 auto 1% auto}
+#G_img {margin-top: 60px}
+#G_text {float: right; text-align: right;}
+#G_text_tit {font-family: "Andele Mono", cursive; font-size: 30px ;}
+#G_text_msg {font-family: "Andele Mono", monospace; font-size: 16px}
+
+/*Estilo parte H */
+
+#H_1 { background-color:#303030;  height:105px;   }
