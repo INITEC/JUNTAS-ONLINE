@@ -54,7 +54,6 @@
 </head>
 <body>
 	<div id="div1">
-	
 	</div>
 </body>
 </html>

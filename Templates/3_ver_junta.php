@@ -8,17 +8,14 @@ require_once ("3_ver_junta_include/carga_informacion.php");
 	<head>
 		<title>..>>Juntas Online<<..</title>
 		<link href="../Estilos/estilos.css" type="text/css" rel="stylesheet" >
-		<script type="text/javascript" languaje="javascript" src="../JavaScript/ajax_1.js"></script>
-		<script type="text/javascript" languaje="javascript" >
-				  var time = new Date().getTime();
-				  
-			     function refresh() {
-			         if(new Date().getTime() - time >= 6000){ 
-			             from('<?php echo $cod_junta; ?>','participantes','3_ver_junta_aux.php');
-			             time = new Date().getTime();
-			             }
-			     }
-	 	  setTimeout(refresh, 1000);
+		<script type="text/javascript" src="../JavaScript/ajax_refreshDivs_1.js"></script>
+		<script type="text/javascript" src="../JavaScript/ajax_refreshDivs_2.js"></script>
+		<script type="text/javascript" src="3_js_ver_junta.js"></script>
+		<script type="text/javascript" >
+			window.onload = function startrefresh(){
+			refreshDivs_1('ListaParticipantes',1,'ListaParticipantes.php','<?php echo $cod_junta;?>');
+			refreshDivs_2('HistorialJunta',5,'HistorialJunta.php','<?php echo $cod_junta; ?>', '<?php echo $periodo_actual; ?>');
+			}
 		</script>
 	</head>
 	<body style="background-color:#88A6DC">
@@ -33,19 +30,7 @@ require_once ("3_ver_junta_include/carga_informacion.php");
 			<div style="background-color:#88A6DC" align="center">
 			<h1><b>CUSTOMERS</b></h1>		
 			</div>
-			<div >
-				<table >
-					<tr>
-						<?php 		
-						$participantes->mostrar_fotos();
-						?>
-					</tr>
-					<tr align="center">	
-						<?php 		
-						$participantes->mostrar_nombres();
-						?>
-					</tr>
-				</table>	
+			<div id="ListaParticipantes" >
 			</div>
 			</div>
 					<?php 
@@ -60,26 +45,7 @@ require_once ("3_ver_junta_include/carga_informacion.php");
 					?>		
 			<div id="cuerpo_tr" >	<!-- seccion del cuerpo -->
 				<div id="izquierda" style="background-color:#FFFFFF">	<!-- seccion del menu -->
-					<div>
-						<h1>HISTORIAL</h1>
-						<hr>
-						<h2>GANADORES</h2>
-						<hr>					
-						<div>
-							<?php $historial->mostrar_ganadores();?>
-						</div>
-						<hr>
-						<h2>EN ESPERA</h2>
-						<hr>					
-						<div>
-							<?php $historial->mostrar_en_espera();?>
-						</div>
-						<hr>
-						<h2>TRANSACCIONES</h2>
-						<hr>
-						<div>
-							<?php $transaccion->mostrar_transacciones(); ?>
-						</div>
+					<div id="HistorialJunta" >
 					</div>
 				</div>		
 					<div id="centro" >	<!-- seccion de la presentacion -->

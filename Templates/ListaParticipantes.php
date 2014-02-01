@@ -1,6 +1,6 @@
 <?php
-require_once ("../require/participantes_class.php");
 $cod_junta = $_GET["dato"];
+require_once ("../require/participantes_class.php");
 
 $participantes = new participantes($cod_junta);
 

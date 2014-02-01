@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>HolaWWWWWWWWWWW</title>
+<title>Perfil usuario</title>
 <link href="../Estilos/EstilosPrincipal.css" rel="stylesheet" type="text/css" />
 <link  href="../Estilos/menu.css" rel="stylesheet" type="text/css" />
 </head>
