@@ -6,5 +6,18 @@ $participantes = new participantes($cod_junta);
 
 ?>	
 <html>
-
+			<div >
+				<table >
+					<tr>
+						<?php 		
+						$participantes->mostrar_fotos();
+						?>
+					</tr>
+					<tr align="center">	
+						<?php 		
+						$participantes->mostrar_nombres();
+						?>
+					</tr>
+				</table>	
+			</div>
 </html>
