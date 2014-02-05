@@ -7,7 +7,7 @@ require_once ("3_ver_junta_include/carga_informacion.php");
 <html>
 	<head>
 		<title>..>>Juntas Online<<..</title>
-		<link href="../Estilos/estilos.css" type="text/css" rel="stylesheet" >
+		<link href="3_css_ver_junta.css" type="text/css" rel="stylesheet" >
 		<script type="text/javascript" src="../JavaScript/ajax_refreshDivs_1.js"></script>
 		<script type="text/javascript" src="../JavaScript/ajax_refreshDivs_2.js"></script>
 		<script type="text/javascript" src="3_js_ver_junta.js"></script>
@@ -20,10 +20,8 @@ require_once ("3_ver_junta_include/carga_informacion.php");
 	</head>
 	<body style="background-color:#88A6DC">
 		<div id="contenedor">
-			<div id="cabecera_ob">
-				<?php
-				$cliente->cabecera_cliente();
-				?>
+			<div id="cabecera">
+				<?php include ('../includes/menu_cabecera.php');?>
 			</div>		
 			<div>
 			<br>
