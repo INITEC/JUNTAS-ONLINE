@@ -64,3 +64,106 @@
 /*Estilo parte H */
 
 #H_1 { background-color:#303030;  height:105px;   }
+
+
+#user
+{
+	margin-top: 40px;
+	position: absolute;
+	top: 64px;
+	left: 600px;
+	width: 101px;
+	height: 30px;
+	float: left;
+	}
+	
+	#password
+{
+	margin-top: 40px;
+	position: absolute;
+	top: 64px;
+	left: 705px;
+	width: 101px;
+	height: 30px;
+	float: left;
+	}
+#formulario
+
+{ margin-top:107px;
+background-image:url('index/Imagenes/crearcuenta.jpg');
+position:absolute;
+top: 60px  ;
+left:  600px;
+
+width: 273px; height:306px; 
+	float: left;
+	}
+
+#botonI {
+margin-top: 104px;
+
+position: absolute;
+top: 0px;
+left: 810px;
+width: 63px;
+height: 30px;
+float: left;
+}
+
+#caja_Nombre
+
+{
+	position: absolute;
+top: 200px;
+left: 610px;
+width: 163px;
+height: 30px;
+	
+	}
+	
+	
+#caja_Apellido
+
+{
+	position: absolute;
+	top: 237px;
+	left: 612px;
+	width: 163px;
+	height: 30px;
+	}
+	#caja_Correo
+
+{position: absolute;
+top: 280px;
+left: 610px;
+width: 163px;
+height: 30px;
+	
+	}
+	#caja_Clave1
+
+{position: absolute;
+top: 320px;
+left: 610px;
+width: 163px;
+height: 30px;
+	
+	}
+	#caja_Clave2
+
+{position: absolute;
+top: 360px;
+left: 610px;
+width: 163px;
+height: 30px;
+	
+	}
+	#bot_reg
+
+{position: absolute;
+top: 400px;
+left: 610px;
+width: 163px;
+height: 30px;
+	
+	}

@@ -22,10 +22,110 @@
 		<div id="B_1" >
 			<div id="B_int">
 				<div id="B_img">
-					<img src="index/Imagenes/personas.png" width="500">
+					<img src="index/Imagenes/personas.png" width="400">
 				</div>
 			</div>
 		</div>
+        
+        <div >
+        <div>
+<form action="1_inicio_aux.php" method="post" width="100px"  >
+					
+                 
+   <input type="text" name="user" id="user">
+      
+   	<input type="password" name="pass" id="password" >
+                   
+ <input type="submit" title="login" value= "Ingresar" id="botonI"> 
+         <input type="hidden" name="tipo" value="LOGIN">
+  
+                       
+                              
+				</form>
+			</div>
+		</div>
+      
+     <div >
+     <form action="1_inicio_aux.php" method="post"  >
+     <input type="text" name="Nombre" id="caja_Nombre">
+     <input type="text" name="Apellidos" id="caja_Apellido">
+     <input type="text" name="Correo" id="caja_Correo">
+     <input type="text" name="Clave1" id="caja_Clave1">
+     <input type="text" name="Clave2" id="caja_Clave2">
+     <input type="submit" name="Registrar">
+       
+   	   				
+						<input type="submit" value="Registrarse" title="Registrarse" id="bot_reg" >
+						<input type="hidden" name="tipo" value="REGISTRO">
+								
+				</form> 
+        </div>
+         <!--  	<div>
+			<div>
+				<h2>LOGIN</h2>
+			</div>
+			<div>
+				<form action="1_inicio_aux.php" method="post">
+					<div>
+						Usuario
+					</div>
+					<div>
+						<input type="text" name="user">
+					</div>
+					<div>
+						Clave
+					</div>
+					<div>
+						<input type="password" name="pass">
+					</div>
+					<div>
+						<input type="submit" title="login" value="Ingresar">
+						<input type="hidden" name="tipo" value="LOGIN">
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div>
+			<div>
+				<h2>REGISTRATE</h2>
+			</div>
+			<div>
+				<form action="1_inicio_aux.php" method="post">
+					<div>
+						Nombre
+					</div>
+					<div>
+						<input type="text" name="nombre">
+					</div>
+					<div>
+						Numero de tarjeta	
+					</div>
+					<div>
+						<input type="text" name="num_tarjeta">
+					</div>
+					<div>
+						Usuario
+					</div>
+					<div>
+						<input type="text" name="user">
+					</div>
+					<div>
+						Clave
+					</div>
+					<div>
+						<input type="password" name="pass_1">
+					</div>
+					<div>
+						Confirme Clave
+					</div>
+					<div>
+						<input type="password" name="pass_2">-->
+					
+	
+			</div>
+		 </div>
+        </div>
 		<div id="C_1">
 			
 		</div>
