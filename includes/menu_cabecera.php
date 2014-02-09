@@ -11,7 +11,7 @@
 			<a href="../Templates/4_perfil_usuario.php"  class="cabecera_text_link">Mi vitrina</a>
 		</div>
 		<div id="cabecera_text_menu">
-			<a href=".." class="cabecera_text_link" >Comunidad</a>
+			<a href="" class="cabecera_text_link" >Comunidad</a>
 		</div>
 	</div>
 </div>
