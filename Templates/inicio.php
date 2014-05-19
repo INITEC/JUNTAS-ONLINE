@@ -34,7 +34,7 @@
 				<h2>REGISTRATE</h2>
 			</div>
 			<div>
-				<form action="1_inicio_aux.php" method="post">
+				<form action="inicio_envio.php" method="post">
 					<div>
 						Nombre
 					</div>

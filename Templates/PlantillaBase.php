@@ -12,7 +12,7 @@
 
  <div class="MenuJuntas">
     <ul>
-      <li><a href="2_elegir_junta.php">ELEGIR JUNTA</a></li>
+      <li><a href="elegir_junta.php">ELEGIR JUNTA</a></li>
       <li><a href="https://www.google.com.pe">MIS JUNTAS</a></li>
       <li><a href="https://www.google.com.pe">INVITACION</a></li>
     </ul>
@@ -44,7 +44,7 @@
 
 </div>
 
-<form name="junta_nueva" action="5_buscar_junta.php" method="post">
+<form name="junta_nueva" action="Buscar_junta.php" method="post">
   	<div id="Buscar" align="center">
                       <input type="text" name="TextJunta">
 				<br>

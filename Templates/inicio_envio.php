@@ -19,7 +19,7 @@ $tipo = $_POST["tipo"];
 			if($inicio->verificar_usuario($user,$pass) == true ) {
 				$_SESSION["cod_cliente"] = $inicio->cod_cliente();
 			}
-			header("Location: 4_perfil_usuario.php");
+			header("Location: PlantillaBase.php");
 		}
 		else {
 			echo "<script type='text/javascript' language='javascript' >

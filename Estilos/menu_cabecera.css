@@ -1,6 +1,0 @@
-#cabecera_int { width: 90%; height:58px; background-color:#FFFFFF; padding: 0px 0px 0px 0px; margin: 0 auto 0 auto}
-#cabecera_text_menu { width: 110px; height: 43px;float: right; text-align: center; margin-top: 15px  }
-#cabecera_text_menu:hover { background-color: #275096; margin-top: 20px; height: 38px}
-.cabecera_imgperfil { width: 70px; height: 58px; float: right;}
-.cabecera_text_link {text-decoration: none; color: black; font-family: "Andele Mono", cursive; text-align: center; }
-.cabecera_text_link:hover {  font-size: 19px; color: #88A6DC;}

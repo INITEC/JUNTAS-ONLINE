@@ -7,7 +7,7 @@ class participantes {
 								public $_numero;
 								private $_conexion;
 								private $_sql;
-								public function __construct ($cod_junta){
+								public function __construct ($cod_cliente , $cod_junta){
 									$this->_conexion = new conexion();
 									$this->_sql = "select * from cliente,tabla_x 
 									where tabla_x.cod_junta=".$cod_junta." 
