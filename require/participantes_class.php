@@ -7,10 +7,10 @@ class participantes {
 								public $_numero;
 								private $_conexion;
 								private $_sql;
-								public function __construct ($cod_cliente , $cod_junta){
+								public function __construct ($cod_junta){
 									$this->_conexion = new conexion();
 									$this->_sql = "select * from cliente,tabla_x 
-									where tabla_x.cod_junta=".$cod_junta." 
+									where tabla_x.cod_junta='".$cod_junta."' 
 									AND cliente.cod_cliente=tabla_x.cod_cliente order by puesto asc";
 									$this->_conexion->ejecutar_sentencia($this->_sql);
 									$this->_datos = $this->_conexion->retornar_array();
@@ -18,10 +18,10 @@ class participantes {
 								}
 								public function mostrar_fotos() {
 									$this->_conexion->ejecutar_sentencia($this->_sql);
-									while($this->_conexion->retornar_array()) {
+									while($this->_datos = $this->_conexion->retornar_array()) {
 									?>
 										<td>
-											<img src="../Imagenes/<?php echo "avatar.jpg";?>" height="90px" align="right">
+											<img src="../Imagenes/fotos_perfil/<?php echo $this->_datos['foto'];?>.jpg" height="90px" align="center">
 										</td>
 									<?php
 									}
@@ -31,7 +31,7 @@ class participantes {
 									while($this->_datos = $this->_conexion->retornar_array()) {
 									?>
 										<td>
-											<?php echo $this->_datos["user"];?>
+											<?php echo $this->_datos["nombre"];?>
 										</td>
 									<?php
 									}

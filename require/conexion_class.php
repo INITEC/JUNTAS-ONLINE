@@ -8,8 +8,13 @@ class conexion {
 	private $_result;	
 	
 	public function __construct () {
-		$this->_conexion = mysql_connect("sql207.redwebmaster.com.ar", "redwe_14057894", "initec");
-		$this->_base_datos = mysql_select_db("juntas");	
+		/*$this->_conexion = mysql_connect("sql201.redwebmaster.com.ar", "redwe_14373810", "jibf123");
+		$this->_base_datos = mysql_select_db("redwe_14373810_juntas");*/
+		$this->_conexion = mysql_connect("localhost", "root", "jibf123");
+		$this->_base_datos = mysql_select_db("juntas");
+		/*$this->_conexion = mysql_connect("", "root", "jibf123");
+		$this->_base_datos = mysql_select_db("juntas");	*/
+		
 	} 
 	public function ejecutar_sentencia ($sql) {
 		$this->_sql = $sql;

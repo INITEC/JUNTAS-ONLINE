@@ -37,7 +37,7 @@ class sorteo {
 		$guardar = new conexion();
 		while($reg = $this->_conexion->retornar_array()) {			
 			$sql = "UPDATE `tabla_x` SET `puesto`='".$this->_lista[$cont]."' 
-					  WHERE `cod_junta`='".$this->_cod_junta."' AND `cod_cliente`='".$reg["cod_cliente"]."'" ;
+					  WHERE `cod_junta`='".$this->_cod_junta."' AND `id_tabla_x`='".$reg["id_tabla_x"]."'" ;
 			$guardar->ejecutar_sentencia($sql);
 			$cont++;
 		}

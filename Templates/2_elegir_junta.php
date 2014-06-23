@@ -1,18 +1,29 @@
 <?php
 	session_start();
 	require_once ("../require/tipo_junta_class.php");
+	require_once ("../require/cliente_class.php");
 	
 	$tipo = new tipo_junta();
-	
+	$cod_cliente = $_SESSION["cod_cliente"];
+	$cliente = new cliente($cod_cliente);
+
 ?>
 
 <html>
 	<head>
 		<title>..::Todas las Juntas::..</title>
+		<link href="2_elegir_junta_include/tareas_estilo.css" type="text/css" rel="stylesheet" >
 	</head>
-	<body>
-			<table>
-				<tr>
+	<body style="background-color:#88A6DC">
+<div>
+<?php include("../includes/menu_cabecera.php"); ?>
+</div>	
+	
+<div align="center">	
+	<h2>ELIJA SU JUNTA</h2>	
+	</div>
+			<table align="center">
+				<tr id="tabla1_encabezado">
 					<td>
 						Num
 					</td>
@@ -32,7 +43,7 @@
 					while ($lista = $tipo->return_tipos()){
 						?>
 							<form action="2_elegir_junta_aux.php" name="form<?php echo $lista['cod_tipo'];?>" method="post">
-							<tr>
+							<tr id="tabla1_informacion">
 								<td>
 									<?php echo $cont; $cont++;?>
 								</td>

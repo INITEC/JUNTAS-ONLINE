@@ -10,7 +10,7 @@ class cliente {
 			$this->_datos = $datos_cliente->retornar_array();
 		}
 		public function ver_foto() {
-				return "../Imagenes/avatar.jpg";
+				return "../Imagenes/fotos_perfil/".$this->_datos["foto"].".jpg";
 		}
 		public function ver_codigo() {
 				return $this->_datos["cod_cliente"];

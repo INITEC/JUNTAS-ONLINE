@@ -5,6 +5,9 @@
 		private $_conexion;
 		private $_cod_tipo;
 		private $_datos;
+		private $dia;
+		private $mes;
+		private $year;
 		
 		public function __construct (){
 			$this->_conexion = new conexion();
@@ -24,6 +27,10 @@
 			return $this->_conexion->retornar_array();
 		}
 		public function establecer_tipo ($cod_tipo) {
+			date_default_timezone_set('America/Los_Angeles');
+			$this->dia = date(d);
+			$this->mes = date(n);
+			$this->year = date(Y);			
 			$sql = "SELECT * FROM tipo_junta WHERE cod_tipo='".$cod_tipo."'";
 			$this->_conexion->ejecutar_sentencia($sql);
 			$this->_datos = $this->_conexion->retornar_array();
@@ -46,6 +53,11 @@
 		public function monto_t (){
 			return $this->_datos["monto_t"];
 		}
+		public function periodo_actual ($fecha_junta) {
+			preg_match('/(\d{4})-(\d{2})-(\d{2})/',$fecha_junta,$fecha_inicio);
+			return (($this->year - $fecha_inicio[1])*12 + ($this->mes - $fecha_inicio[2]))/$this->_datos["frec_pago"];
+		}	
+	
 	}
 	
 ?>

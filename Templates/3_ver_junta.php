@@ -1,61 +1,36 @@
 <?php
 session_start();
-require_once ("../require/cliente_class.php");
-require_once ("../require/junta_class.php");
-require_once ("../require/participantes_class.php");
-require_once ("../require/historial_class.php");
-require_once ("../require/transacciones_class.php");
-require_once ("../require/sorteo_class.php");
-require_once ("../require/tipo_junta_class.php");
-?>
 
-<?php
+require_once ("3_ver_junta_include/carga_informacion.php");
 
-$cod_cliente = $_SESSION["cod_cliente"];
-$cod_junta = $_SESSION["cod_junta"];
-$cliente = new cliente($cod_cliente);
-$junta = new junta($cod_junta);
-$tipo_junta = new tipo_junta();
-$tipo_junta->establecer_tipo($junta->cod_tipo());
-$num_participantes = $tipo_junta->numero_participantes();
-$participantes = new participantes($cod_cliente, $cod_junta);
-$historial = new historial($cod_junta,$junta->periodo_actual());
-$transaccion = new transacciones($cod_junta);
-$sorteo = new sorteo($cod_junta,$num_participantes);
-
-			$self = $_SERVER['PHP_SELF'];
-			header("refresh:10; url=$self"); // refresca la pantalla cada 10 seg
-			
 ?>
 <html>
 	<head>
 		<title>..>>Juntas Online<<..</title>
-		<link href="../Estilos/estilos.css" type="text/css" rel="stylesheet" >
+		<link href="3_css_ver_junta.css" type="text/css" rel="stylesheet" >
+		<script type="text/javascript" src="../JavaScript/ajax_refreshDivs_1.js"></script>
+		<script type="text/javascript" src="../JavaScript/ajax_refreshDivs_2.js"></script>
+		<script type="text/javascript" src="3_js_ver_junta.js"></script>
+		<script type="text/javascript" >
+			window.onload = function startrefresh(){
+			refreshDivs_1('ListaParticipantes',1,'ListaParticipantes.php','<?php echo $cod_junta;?>');
+			refreshDivs_2('HistorialJunta',5,'HistorialJunta.php','<?php echo $cod_junta; ?>', '<?php echo $periodo_actual; ?>');
+			}
+		</script>
 	</head>
 	<body style="background-color:#88A6DC">
 		<div id="contenedor">
-			<div id="cabecera_ob">
-				<?php
-				$cliente->cabecera_cliente();
-				?>
+			<div id="cabecera">
+				<?php include ('../includes/menu_cabecera.php');?>
 			</div>		
 			<div>
 			<br>
 			<div style="background-color:#88A6DC" align="center">
 			<h1><b>CUSTOMERS</b></h1>		
 			</div>
-					<table >
-						<tr>
-							<?php 		
-							$participantes->mostrar_fotos();
-							?>
-						</tr>
-						<tr align="center">	
-							<?php 		
-							$participantes->mostrar_nombres();
-							?>
-						</tr>
-					</table>
+			<div id="ListaParticipantes" >
+			</div>
+			</div>
 					<?php 
 						if($participantes->num_participantes_actuales() == $num_participantes ) {
 							if($sorteo->estado_sorteo() == 0  ) {
@@ -65,30 +40,10 @@ $sorteo = new sorteo($cod_junta,$num_participantes);
 							else { echo "Ya se sorteo";}
 						}
 						else {echo "Aun faltan integrantes para sortear";}
-					?>
-			</div>			
+					?>		
 			<div id="cuerpo_tr" >	<!-- seccion del cuerpo -->
 				<div id="izquierda" style="background-color:#FFFFFF">	<!-- seccion del menu -->
-					<div>
-						<h1>HISTORIAL</h1>
-						<hr>
-						<h2>GANADORES</h2>
-						<hr>					
-						<div>
-							<?php $historial->mostrar_ganadores();?>
-						</div>
-						<hr>
-						<h2>EN ESPERA</h2>
-						<hr>					
-						<div>
-							<?php $historial->mostrar_en_espera();?>
-						</div>
-						<hr>
-						<h2>TRANSACCIONES</h2>
-						<hr>
-						<div>
-							<?php $transaccion->mostrar_transacciones(); ?>
-						</div>
+					<div id="HistorialJunta" >
 					</div>
 				</div>		
 					<div id="centro" >	<!-- seccion de la presentacion -->
@@ -105,14 +60,14 @@ $sorteo = new sorteo($cod_junta,$num_participantes);
 					<div>
 							<img src="<?php echo $cliente->ver_foto();?>" height="100px" align="center">
 					</div>
-					<div>
+					<div style="color:#FFFFFF;">
 							Monto Total: <?php echo $tipo_junta->monto_t();?>
 					</div>
-					<div>
+					<div style="color:#FFFFFF;">
 							Numero de Periodos: <?php echo $tipo_junta->numero_periodos();?> 
 					</div>
-					<div>
-							Periodo Actual: <?php echo $junta->periodo_actual();?> 
+					<div style="color:#FFFFFF;">
+							Periodo Actual: <?php echo $tipo_junta->periodo_actual($junta->fecha_inicio());?> 
 					</div>
 				</div>	
 			</div>

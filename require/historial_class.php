@@ -12,19 +12,21 @@ class historial {	private $_cod_junta;
 						}
 						public function mostrar_ganadores() {
 							$datos_historial = new conexion();
-							$sql="select * from tabla_x,cliente where tabla_x.cod_junta=".$this->_cod_junta." AND tabla_x.puesto<".$this->_periodo_actual." AND tabla_x.cod_cliente = cliente.cod_cliente ";
+							$sql="select * from tabla_x,cliente where tabla_x.cod_junta=".$this->_cod_junta." 
+							AND tabla_x.puesto<=".$this->_periodo_actual." AND tabla_x.cod_cliente = cliente.cod_cliente ";
 							$datos_historial->ejecutar_sentencia($sql);
 							while($this->_datos = $datos_historial->retornar_array()) {
-								echo $this->_datos["user"];
+								echo $this->_datos["nombre"];
 								echo "<br>";
 							}
 						}
 						public function mostrar_en_espera() {
 							$datos_historial = new conexion();
-							$sql="select * from tabla_x,cliente where tabla_x.cod_junta=".$this->_cod_junta." AND tabla_x.puesto>".$this->_periodo_actual." AND tabla_x.cod_cliente = cliente.cod_cliente ";
+							$sql="select * from tabla_x,cliente where tabla_x.cod_junta=".$this->_cod_junta." 
+							AND tabla_x.puesto>".$this->_periodo_actual." AND tabla_x.cod_cliente = cliente.cod_cliente ";
 							$datos_historial->ejecutar_sentencia($sql);
 							while($this->_datos = $datos_historial->retornar_array()) {
-								echo $this->_datos["user"];
+								echo $this->_datos["nombre"];
 								echo "<br>";
 							}							
 						}
